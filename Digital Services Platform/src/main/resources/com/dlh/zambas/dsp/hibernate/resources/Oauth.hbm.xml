@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.dlh.zambas.dsp.pojo.OauthDBPojo" table="stardsp_oauth_token">
+    <cache usage="read-write"/>
+        <id name="id" type="int">
+            <column name="id" length="8" not-null="true" unique="true" />
+        </id>
+         <property name="tokenUri" type="string">
+            <column name="token_uri" length="500" not-null="true" unique="false" />
+        </property>
+        <property name="username" type="string">
+            <column name="username" length="50" not-null="false" unique="false" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="50" not-null="false" unique="false" />
+        </property>
+        <property name="clientId" type="string">
+            <column name="client_id" length="100" not-null="true" unique="false" />
+        </property>
+       <property name="clientSecret" type="string">
+            <column name="client_secret" length="100" not-null="true" unique="false" />
+        </property>
+         <property name="grantType" type="string">
+            <column name="grant_type" length="20" not-null="false" unique="false" />
+        </property>
+    </class>
+</hibernate-mapping>

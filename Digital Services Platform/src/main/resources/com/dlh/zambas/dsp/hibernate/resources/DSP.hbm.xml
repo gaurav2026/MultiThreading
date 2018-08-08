@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.dlh.zambas.dsp.pojo.DSPPojo" table="starhub_dsp_token" dynamic-update="true">
+     <cache usage="read-write"/>
+        <id name="id" type="int">
+            <column name="ID" not-null="true" unique="true" />
+        </id>
+        <property name="token" type="string">
+            <column name="TOKEN" not-null="true" unique="false" />
+        </property>
+        <property name="expirationTime" type="int">
+            <column name="EXPIRATION_TIME" not-null="true" unique="true" />
+        </property>
+        <property name="refreshToken" type="string">
+            <column name="REFRESH_TOKEN" not-null="false" unique="false" />
+        </property>
+       <property name="lastModifiedTime" type="string">
+            <column name="LAST_MODIFIED_TIME" not-null="true" unique="true" />
+        </property>
+    </class>
+</hibernate-mapping>

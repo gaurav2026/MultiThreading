@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="javax.persistence.validation.mode">none</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+		<property name="hibernate.connection.datasource">jdbc:/selfservice</property>
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+
+		<property name="cache.provider_class">
+			org.hibernate.cache.EhCacheProvider
+		</property>
+
+		<property name="dialect">org.hibernate.dialect.OracleDialect</property>
+
+		<!-- Enable Second Level Cache -->
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="net.sf.ehcache.configurationResourceName">ehcache.xml</property>
+		<property name="hibernate.cache.region.factory_class">net.sf.ehcache.hibernate.EhCacheRegionFactory</property>
+		<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider"</property>
+
+		<!-- Echo all executed SQL to stdout -->
+		<property name="show_sql">false</property>
+		<property name="format_sql">true</property>
+		<property name="hbm2ddl.auto">update</property>
+
+		<mapping class="com.dlh.zambas.dsp.pojo.DSPPojo"></mapping>
+		<mapping class="com.dlh.zambas.dsp.pojo.OauthDBPojo"></mapping>
+
+		<mapping resource="com/dlh/zambas/dsp/hibernate/resources/DSP.hbm.xml"></mapping>
+		<mapping resource="com/dlh/zambas/dsp/hibernate/resources/Oauth.hbm.xml"></mapping>
+	</session-factory>
+
+</hibernate-configuration>
